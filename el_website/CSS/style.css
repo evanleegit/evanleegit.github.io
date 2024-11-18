@@ -1,0 +1,63 @@
+/* Universal selector: Applies to all elements on the page */
+* {
+    padding: 0; /* Removes default padding */
+    margin: 0;  /* Removes default margin */
+}
+
+/* Header section styling */
+header {
+    height: 45px; /* Sets the header height to 45 pixels */
+}
+
+header nav ul {
+    display: flex;        /* Makes the navigation items appear in a horizontal row */
+    margin-left: 70%;     /* Pushes the navigation menu 70% to the right */
+    list-style: none;     /* Removes the default list bullet points */
+}
+
+header nav ul li {
+    padding-left: 15%;    /* Adds space between each navigation item */
+}
+
+header a {
+    text-decoration: none; /* Removes underline from links */
+    color: brown;          /* Sets the color of links to brown */
+}
+
+/* Main section styling */
+section {
+    height: 100vh;                  /* Makes the section span the full height of the viewport */
+    border: 1px solid grey;         /* Adds a grey border around the section */
+    display: flex;                  /* Enables flexbox layout */
+    justify-content: center;        /* Centers content horizontally */
+    align-items: center;            /* Centers content vertically */
+}
+
+/* Styling for the container inside the section */
+.Container img {
+    height: 300px;        /* Sets the height of the image to 300 pixels */
+    border-radius: 50%;   /* Makes the image circular */
+}
+
+/* Styling for the heading inside the container */
+.Container h2 {
+    margin-top: 2%;       /* Adds margin above the heading */
+    font-size: 3em;       /* Sets the font size to 3 times the default size */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 
+                 'Lucida Grande', 'Lucida Sans Unicode', 
+                 Geneva, Verdana, sans-serif; /* Sets the font family */
+}
+
+/* Styling for paragraphs and unordered lists inside the container */
+.Container p, ul {
+    margin-top: 2%;   /* Adds margin above the text */
+    font-size: 1.5rem; /* Sets the font size to 1.5 times the default size */
+}
+
+/* Footer section styling */
+footer {
+    line-height: 40px;       /* Sets the height of each line in the footer */
+    display: flex;           /* Enables flexbox layout */
+    justify-content: center; /* Centers content horizontally */
+    font-size: 1rem;         /* Sets the font size to the default size */
+}
