@@ -126,5 +126,6 @@ section {
 
 /* Footer section styling */
 footer {
-
+    margin: 0;
+    height: 6.55em;
 }
