@@ -1,0 +1,53 @@
+
+
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+  }
+
+.experience {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.item {
+    background-color: #fff;
+    border-left: 4px solid #0077b6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.workplace {
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #0077b6;
+    text-decoration: none;
+}
+
+.workplace a:hover {
+    text-decoration: underline;
+}
+
+.timeframe {
+    font-size: 9pt;
+}
+
+.position {
+    font-size: 1em;
+    font-weight: 600;
+    margin: 5px 0;
+    color: #333;
+}
+
+.description {
+    font-size: 0.95em;
+    margin-top: 10px;
+    line-height: 1.6;
+}
