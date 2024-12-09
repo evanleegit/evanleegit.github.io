@@ -1,4 +1,3 @@
-/* Universal selector: Applies to all elements on the page */
 * {
     padding: 0; /* Removes default padding */
     margin: 0;  /* Removes default margin */
@@ -126,6 +125,6 @@ section {
 
 /* Footer section styling */
 footer {
-    margin: 0;
-    height: 6.55em;
+    /* margin: 0;
+    height: 6.55em; */
 }
