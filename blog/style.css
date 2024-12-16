@@ -5,16 +5,6 @@
     box-sizing: border-box;
 }
 
-nav {
-    display: inline-block;
-    background-color: white;
-    text-align: center;
-    margin-top: 10px;
-    padding: 5px 10px;
-    max-width: 900px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
 
 body {
     font-family: Arial, sans-serif;

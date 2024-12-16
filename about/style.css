@@ -1,11 +1,130 @@
+/* Icons for Experiences */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 
-body {
-    font-family: sans-serif;
-    background-color: #f4f4f9;
+ul {
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    list-style-type: none;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+.bio {
+    font-size: 18px;
+}
+
+.workplace {
+    color: gray;
+}
+
+.logo img {
+    max-width: 60px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 3px; /* Optional, for rounded logos */
+}
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
   }
+  
+  /* Navbar Styles */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 15px;
+    /* border-bottom: 0px solid #ddd; */
+  }
+  
+  /* Logo and Icons Section */
+  .logo-and-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-and-icons h1 a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-right: 15px;
+  }
+  
+  .social-icons {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .social-icons li {
+    margin-left: 10px;
+  }
+  
+  .social-icons a {
+    color: #333;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+  }
+  
+  .social-icons a:hover {
+    color: #0073e6;
+  }
+  
+  /* Navigation Menu */
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-menu li {
+    margin-left: 20px;
+  }
+  
+  .nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .nav-menu a:hover {
+    color: #0073e6;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .nav-menu {
+      display: none; /* Hide menu on smaller screens */
+    }
+  
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  nav {
+    display: inline-block;
+    background-color: white;
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px 10px;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
 .experience {
     display: flex;
@@ -13,15 +132,6 @@ body {
     gap: 20px;
     max-width: 600px;
     margin: 0 auto;
-}
-
-.item {
-    background-color: #fff;
-    border-left: 4px solid #0077b6;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 15px 20px;
-    border-radius: 8px;
-    position: relative;
 }
 
 .workplace {
@@ -50,4 +160,36 @@ body {
     font-size: 0.95em;
     margin-top: 10px;
     line-height: 1.6;
+    padding: 0px;
+}
+
+.container {
+    max-width: 900px; /* Limit width for better alignment */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 20px; /* Add space between items */
+}
+
+
+.item {
+    width: 100%; /* Ensure each item spans full width */
+    background-color: #fff;
+    border-left: 4px solid #0077b6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Add consistent spacing inside */
+    border-radius: 8px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between; /* Align logo and text */
+    align-items: center;
+}
+
+.description ul {
+    padding: 0; /* Remove default list padding */
+    margin: 0;
+    list-style-type: disc; /* Add bullets */
+    padding-left: 20px; /* Indent bullet points */
 }
