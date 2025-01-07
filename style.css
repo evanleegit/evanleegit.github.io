@@ -27,14 +27,12 @@ nav {
 
 h2 {
     font-size: 25px;
+    text-decoration: none;
+    color: black;
 }
 
 .bio {
     font-size: 18px;
-}
-
-body {
-    style:flex;
 }
 
 .rectangle{
@@ -74,7 +72,6 @@ body {
 /* Main section styling */
 section {
     height: 100vh;                  /* Makes the section span the full height of the viewport */
-    border: 1px solid grey;         /* Adds a grey border around the section */
     display: flex;                  
     justify-content: center;        /* Centers content horizontally */
     align-items: center;            /* Centers content vertically */
@@ -120,10 +117,4 @@ section {
 
 .right-block {
     margin:50px 50px
-}
-
-/* Footer section styling */
-footer {
-    /* margin: 0;
-    height: 6.55em; */
 }
