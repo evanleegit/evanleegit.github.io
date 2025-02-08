@@ -17,8 +17,8 @@
 .left-block {
   position: sticky;
   top: 0;
-  flex: 1; /* Ensure both blocks take equal space */
-  padding: 20px; /* Add padding for content spacing */
+  flex: 1; 
+  padding: 20px; 
   overflow-y: auto;
 	width: 250px;
   max-width: 250px;
@@ -28,9 +28,9 @@
 }
 
 .my-photo {
-  max-width: 80px; /* Adjust size as needed */
+  max-width: 80px;
   height: auto;
-  border-radius: 3px; /* Optional, for rounded logos */
+  border-radius: 3px;
   float: left;
 }
 
@@ -43,7 +43,7 @@
 
 nav {
     display: flex;
-    flex-direction: column; /* Correct property name */
+    flex-direction: column;
     background-color: white;
     margin-top: 10px;
 }
@@ -96,8 +96,8 @@ nav {
 /* Right Block */
 .right-block {
   overflow-y: auto;
-  flex: 1; /* Ensure both blocks take equal space */
-  padding: 20px; /* Add padding for content spacing */
+  flex: 1;
+  padding: 20px;
   max-width: 600px
 
 }
@@ -120,7 +120,7 @@ nav {
 /* Experience */
 
 h1 {
-align-self: flex-start; /* Aligns h1 relative to its container in flexbox */
+align-self: flex-start;
 font-size: 25px;
 text-decoration: none;
 color: black;
@@ -128,7 +128,7 @@ color: black;
 
 h2 {
 text-align: left; 
-align-self: flex-start; /* Aligns h1 relative to its container in flexbox */
+align-self: flex-start;
 font-size: 25px;
 }
 
@@ -158,22 +158,22 @@ font-size: 25px;
 }
 
 .main-container {
-    max-width: 1500px; /* Limit width for better alignment */
+    max-width: 1500px;
     margin: 0 auto;
     display: flex;
-    flex-direction: row; /* Stack items vertically */
+    flex-direction: row;
 }
 
 .logo img {
-  max-width: 45px; /* Adjust size as needed */
+  max-width: 45px;
   height: auto;
-  border-radius: 3px; /* Optional, for rounded logos */
+  border-radius: 3px;
   float: right
 }
 
 .item {
     background-color: #fff;
-    padding: 17px; /* Add consistent spacing inside */
+    padding: 17px;
     border-radius: 8px;
     margin: 10px 0: 
     transition: box-shadow 0.6s ease, transform 0.2s ease;
@@ -190,31 +190,31 @@ font-size: 25px;
 
 .header {
     display: flex;
-    justify-content: space-between; /* Align logo and text */
+    justify-content: space-between;
     align-items: center;
 }
 
 .description ul {
-    padding: 0; /* Remove default list padding */
+    padding: 0;
     margin: 0;
-    list-style-type: disc; /* Add bullets */
-    padding-left: 20px; /* Indent bullet points */
+    list-style-type: disc;
+    padding-left: 20px;
 }
 
 .skills {
   margin-top: 10px;
   display: flex;
-  flex-wrap: wrap; /* Allow bubbles to wrap to the next line */
-  gap: 8px; /* Add spacing between bubbles */
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .skill {
-  background-color: #0077b6; /* Blue background */
-  color: #fff; /* White text */
+  background-color: #0077b6;
+  color: #fff;
   font-size: 0.85em;
   font-weight: 500;
-  padding: 5px 10px; /* Adjust padding for bubble shape */
-  border-radius: 20px; /* Create rounded "bubble" effect */
+  padding: 5px 10px;
+  border-radius: 20px;
   display: inline-block;
   text-align: center;
 }
@@ -234,22 +234,22 @@ font-size: 25px;
   padding: 13px;
   flex: 0 0 400px;
   box-sizing: border-box;
-  /* transition: box-shadow 0.6s ease, transform 0.2s ease; */
+  
 transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Hover effect to darken the overlay */
+
 .project:hover {
-  transform: scale(1.03); /* Slight zoom effect */
-  filter: brightness(0.9); /* Darkens the image for the hover state */
+  transform: scale(1.03);
+  filter: brightness(0.9);
 }
 
 .project-1 {
   background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.8)), 
               url('../images/auto_sorter.png');
-  background-size: cover; /* Ensures the image covers the box */
-  background-position: center; /* Centers the image */
-  background-repeat: no-repeat; /* Prevents tiling */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .project-2 {
@@ -287,7 +287,7 @@ transition: transform 0.3s ease, filter 0.3s ease;
 .project-container::before,
 .project-container::after {
   content: '';
-  flex: 0 0 10px; /* Adjust this for padding at the edges */
+  flex: 0 0 10px;
 }
 
 .project-container {
@@ -302,7 +302,7 @@ transition: transform 0.3s ease, filter 0.3s ease;
   -ms-overflow-style: none;
   scrollbar-width: none;
   transition: transform 0.15s ease-out;
-  overscroll-behavior-x: contain; /* Prevents page scroll when container reaches the end */
+  overscroll-behavior-x: contain;
 	  mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -313,7 +313,7 @@ transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .project-container::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for Chrome/Safari */
+  display: none;
 }
 
 .project-container {
@@ -322,7 +322,6 @@ transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .project h3 {
-  /* margin-bottom: 5px; */
   font-size: 22px;
 }
 
@@ -332,10 +331,10 @@ transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .project skills {
-  margin-top: auto; /* Pushes the skills section to the bottom */
+  margin-top: auto;
   display: flex;
   gap: 5px;
-  flex-wrap: wrap; /* Allows skills to wrap if necessary */
+  flex-wrap: wrap;
 }
 
 .project:hover {
@@ -343,33 +342,38 @@ transition: transform 0.3s ease, filter 0.3s ease;
   transform: translateY(-2px);
 }
 
-@media (max-width: 768px) { /* Adjust 768px to your desired breakpoint */
+@media (max-width: 768px) {
     .main-container {
-        flex-direction: column; /* Stack left and right blocks vertically */
-        align-items: center; /* Center the content horizontally */
-        padding: 40px; /* Adjust padding for smaller screens */
+        flex-direction: column;
+        align-items: center;
+        padding: 40px;
     }
 
     .left-block {
-        position: relative; /* Remove sticky positioning */
-        top: auto; /* Reset top value */
-        flex: 1; /* Reset flex properties */
-        max-width: 100%; /* Make left block take full width */
+        position: relative;
+        top: auto;
+        flex: 1;
+        max-width: 100%;
         width: 100%;
-        overflow-y: visible; /* Restore scroll if needed */
-        margin-bottom: 20px; /* Add space below left block */
+        overflow-y: visible;
+        margin-bottom: 20px;
     }
 
     .right-block {
         flex: 1;
-        max-width: 100%; /* Make right block take full width */
+        max-width: 100%;
         width: 100%;
-        overflow-y: visible; /* Restore scroll if needed */
+        overflow-y: visible;
     }
 
     nav {
-        max-width: 100%; /* Make nav take full width */
+        max-width: 100%;
     }
+}
 
+footer {
+	text-align: center;
+	font-size: 12px;
+	color: gray;
 
 }
