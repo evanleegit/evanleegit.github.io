@@ -1,120 +1,125 @@
 * {
-    padding: 0; /* Removes default padding */
-    margin: 0;  /* Removes default margin */
+    padding: 0;
+    margin: 0; 
     font-size: 22px;
     font-family:'IBM Plex Sans', sans-serif;
+    box-sizing: border-box;
     
 }
 
-.container {
-    position: sticky;
+.main-container{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
+    align-items: flex-start;
+}
+
+section {
+  display: flex;                  
+  justify-content: center;        /* Centers content horizontally */
+  align-items: center;            /* Centers content vertically */
+}
+
+/* NAVIGATION */
+.home-button {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
 }
 
 nav {
-    display: inline-block;
-    background-color: white;
-    text-align: center;
-    margin-top: 10px;
-    padding: 5px 10px;
-    max-width: 900px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  background-color: white;
+  text-align: center;
+  margin-top: 10px;
+  padding: 5px 10px;
+  max-width: 900px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+}
+
+.menu a {
+  text-decoration: none;
+  color: black;
+  
+  padding: 3px 6px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-size: 18px;
+}
+
+.menu a:hover {
+  background-color: #f0e68c; /* Light yellow hover background */
+  color: #333; /* Darker text color on hover */
+}
+
+
+
+
+/* EXPERIENCES SECTIONS */
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo img {
+    max-width: 60px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 3px; /* Optional, for rounded logos */
 }
 
 h2 {
-    font-size: 25px;
-    text-decoration: none;
-    color: black;
+  text-align: left; /* Align text inside h1 */
+  align-self: flex-start; /* Aligns h1 relative to its container in flexbox */
+  font-size: 25px;
 }
 
 .bio {
     font-size: 18px;
 }
 
-.rectangle{
-    width: 600px;
-    height: 300px;
-    background-color: gray;
-}
 
-
-.home-button {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: black;
-    text-decoration: none;
-}
-
-.menu {
-    display: flex;
-    list-style: none;
-}
-
-.menu a {
-    text-decoration: none;
-    color: black;
-    
-    padding: 3px 6px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    font-size: 18px;
-}
-
-.menu a:hover {
-    background-color: #f0e68c; /* Light yellow hover background */
-    color: #333; /* Darker text color on hover */
-}
-
-/* Main section styling */
-section {
-    height: 100vh;                  /* Makes the section span the full height of the viewport */
-    display: flex;                  
-    justify-content: center;        /* Centers content horizontally */
-    align-items: center;            /* Centers content vertically */
-}
-
+/* Left Block */
 .left-block {
-    text-align:left;
-    box-sizing: border-box;
-    flex:1;
-    padding: 100px;
+  position: sticky;
+  top: 0;
+  flex: 1; /* Ensure both blocks take equal space */
+  padding: 20px; /* Add padding for content spacing */
+  overflow-y: auto;
 }
 
 .name-and-links {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: nowrap;
-  }
-  
-  .name-and-links .externals {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 10px; /* Space between list items */
-  }
-  
-  .name-and-links .externals li {
-    margin: 0;
-  }
-  
-  .name-and-links .externals a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-.right-block {
-    text-align:left;
-    box-sizing: border-box;
-    flex: 1;
-    padding: 100px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
 }
 
+.name-and-links .externals {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 10px; /* Space between list items */
+}
+
+.name-and-links .externals li {
+  margin: 0;
+}
+
+.name-and-links .externals a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Right Block */
 .right-block {
-    margin:50px 50px
+  overflow-y: auto;
+  flex: 3; /* Ensure both blocks take equal space */
+  padding: 20px; /* Add padding for content spacing */
+
 }
