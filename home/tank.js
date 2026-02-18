@@ -6,8 +6,8 @@
    Configuration
 ========================= */
 
-const TANK_WIDTH = 42;
-const TANK_HEIGHT = 14;
+const TANK_WIDTH = 36;
+const TANK_HEIGHT = 12;
 
 const FPS = 24;
 const FRAME_TIME = 1000 / FPS;

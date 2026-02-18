@@ -19,39 +19,46 @@ body {
   align-items: flex-start;
   gap: clamp(10px, 2vh, 15px);
   width: max-content;
+  max-width: 100%;
 }
 
-/* Identity Section */
 .identity {
   width: 100%;
   text-align: left;
 }
 
 .name {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 3vw, 1.1rem);
   font-weight: 600;
   margin-bottom: 4px;
 }
 
+.name a {
+  text-decoration: none;
+  color: black;
+}
+
 .tagline {
-  font-size: 0.85rem;
+  font-size: clamp(0.8rem, 2.5vw, 0.85rem);
   opacity: 0.6;
 }
 
 /* Fish Tank */
 #tank {
   line-height: 1.05;
-  font-size: clamp(12px, 1.4vw, 14px);
+  font-size: clamp(14px, 1.4vw, 14px);
   user-select: none;
   cursor: default;
+  align-self: center;
+  min-width: 100%;
 }
 
 /* Navigation */
 .nav {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  font-size: 0.9rem;
+  justify-content: space-between;
+  width: 100%;
+  font-size: clamp(0.85rem, 2.5vw, 0.9rem);
 }
 
 .nav a {
@@ -74,4 +81,20 @@ body {
 
 .nav a:hover::before {
   content: ">";
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+  
+  #tank {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .home {
+    gap: 12px;
+  }
 }
