@@ -76,6 +76,7 @@ body {
 
 .nav a:hover {
   color: orange;
+  padding-left: 12px;
   opacity: 1;
 }
 
