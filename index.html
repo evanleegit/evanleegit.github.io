@@ -1,42 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home | Evan Lee</title>
   <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
+
+<div class="home-container">
+  <div class="home-wrapper">
+    <header class="navbar-component" data-include="navigator.html"></header>
+
+  <main class="home">
+    <pre id="tank"></pre>
+  </main>
+  </div>
+</div>
+
   <div class="last-updated">
     Last updated: June 2026
   </div>
 
-  <main class="home">
-
-    <pre id="tank"></pre>
-    <header class="identity">
-      <div class="name">
-        <a href="../">Evan Lee</a></div>
-      <div class="tagline">MASDS @ UCLA</div>
-    </header>
-
-    <nav class="nav">
-      <a href="/projects">projects</a>
-      <a href="/journal">journal</a>
-      <a href="/about">about</a>
-    </nav>
-
-    <section class="contact-section">
-      <pre>
-Email:    evanstephenlee@gmail.com
-LinkedIn: linkedin.com/in/evan-s-lee
-GitHub:   github.com/evanleegit
-      </pre>
-    </section>
-
-  </main>
-
+  <script>
+    // Simple script to inject navigator.html if you aren't using an SSG build tool
+    document.querySelectorAll('[data-include]').forEach(async (el) => {
+      const file = el.getAttribute('data-include');
+      try {
+        const response = await fetch(file);
+        if (response.ok) el.innerHTML = await response.text();
+      } catch (err) {
+        console.error(`Error loading ${file}:`, err);
+      }
+    });
+  </script>
   <script src="tank.js"></script>
 </body>
 </html>

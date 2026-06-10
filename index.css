@@ -1,3 +1,6 @@
+/* ==========================================
+   1. RESET & BASE (Shared)
+   ========================================== */
 * {
   margin: 0;
   padding: 0;
@@ -5,64 +8,59 @@
 }
 
 body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* 1. Unified font-family base */
   font-family: "JetBrains Mono", monospace;
-  line-height: 1.5; /* Gives a consistent baseline vertical rhythm */
-  color: #111;      /* Replaces harsh pure black with a softer off-black */
-  padding: 20px;
+  background: #fff;
+  color: #111;
+  line-height: 1.5;
 }
 
-.home {
+/* ==========================================
+   2. THE UNIVERSAL NAVBAR COMPONENT 
+   ========================================== */
+.navbar-component {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: clamp(12px, 2.5vh, 20px); /* Slightly increased for better breathing room */
-  width: max-content;
-  max-width: 100%;
-}
-
-.identity {
   width: 100%;
-  text-align: left;
+  max-width: 250px; /* Keeps tagline breaking perfectly */
 }
 
 .name {
-  font-size: clamp(1.05rem, 3vw, 1.2rem); /* Slightly boosted for clearer hierarchy */
+  font-size: 1.1rem;  
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 .name a {
   text-decoration: none;
-  color: inherit; /* Inherits the body color automatically */
+  color: inherit;
 }
 
 .tagline {
-  font-size: clamp(0.8rem, 2.2vw, 0.85rem);
-  opacity: 0.6;
+  font-size: 0.85rem; 
+  font-weight: 400;
+  margin-bottom: 10px;
 }
 
-/* Fish Tank */
-#tank {
-  /* 2. Tied line-height directly to font-size intent */
-  line-height: 1.1;
-  font-size: clamp(13px, 1.4vw, 14px); 
-  user-select: none;
-  cursor: default;
-  align-self: center;
-  min-width: 100%;
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 15px;
 }
 
-/* Navigation */
+.social-links a {
+  text-decoration: none;
+  color: #888;
+  font-size: 0.85rem;
+}
+
 .nav {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  gap: 6px; /* Clean spacing between links */
+  align-items: flex-start;
+  width: max-content;
+  gap: 5px;
   font-size: clamp(0.85rem, 2.5vw, 0.9rem); 
 }
 
@@ -70,13 +68,8 @@ body {
   position: relative;
   text-decoration: none;
   color: inherit;
-  opacity: 0.7;
-  transition: opacity 0.2s, color 0.2s, padding 0.2s;
-}
-
-.nav a::before {
-  content: "";
-  margin-right: 2px;
+  transition: opacity 0.2s, color 0.2s;
+  display: inline-block;
 }
 
 .nav a:hover {
@@ -87,6 +80,99 @@ body {
 
 .nav a:hover::before {
   content: ">";
+  position: absolute;
+  left: 0;
+}
+
+/* ==========================================
+   3. PAGE LAYOUT SYSTEMS
+   ========================================== */
+
+/* INDEX (HOME) LAYOUT */
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px; 
+  width: max-content;
+  max-width: 100%;
+}
+
+#tank {
+  line-height: 1.1;
+  font-size: clamp(13px, 1.4vw, 14px); 
+  user-select: none;
+  cursor: default;
+  align-self: center;
+  min-width: 100%;
+}
+
+/* TWO-COLUMN SUBPAGE LAYOUT (About, Projects, Journal) */
+.container {
+  display: flex;
+  align-items: flex-start;
+  max-width: 900px; /* Slightly tightened for better readability */
+  gap: 60px;        /* Healthy breathing room between navbar and text */
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+/* The wrapper frame holding the navbar component on subpages */
+.sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 60px; /* Sticks neatly when scrolling down long content */
+  align-self: flex-start;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Clean, plain-text styling for content paragraphs */
+.content {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.content p {
+  margin-bottom: 20px; /* Replaces messy double <br> tags */
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #111;
+  margin-top: 40px;
+}
+
+.section-title:first-child {
+  margin-top: 0; /* Prevents awkward top-gaps on the first heading */
+}
+
+/* Clean plain list formatting for non-resume information */
+.plain-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.plain-list li {
+  font-size: 0.85rem;
+  color: #333;
 }
 
 .last-updated {
@@ -94,48 +180,103 @@ body {
   bottom: 15px;
   left: 15px;
   font-size: 11px;
-  opacity: 0.5; /* Uses opacity rather than a random hardcoded gray */
+  opacity: 0.5;
 }
 
-/* Contact Section */
-.contact-section {
-  width: 100%;
-}
-
-.contact-section pre {
-  /* 3. CRITICAL: Force the pre tag to use your exact font family */
-  font-family: inherit; 
-  font-size: clamp(0.8rem, 2.2vw, 0.85rem); /* Keeps it proportional to the tagline */
-  line-height: 1.5;
-  opacity: 0.85;
-  text-align: left;
-  background: none;
-  border: none;
-  padding: 0;
-}
-
-.contact-section a {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 2px; /* Prevents the underline from choking the text */
-}
-
-.contact-section a:hover {
-  opacity: 1;
-}
-
-/* Mobile optimization */
+/* ==========================================
+   4. UNIFIED RESPONSIVE BREAKS
+   ========================================== */
 @media (max-width: 768px) {
-  body {
-    padding: 15px;
+  .container {
+    flex-direction: column; /* Flips to a single column layout */
+    gap: 35px;
+    padding: 40px 20px;
+    align-items: flex-start; 
   }
-  
-  #tank {
-    font-size: 13px; /* Slightly scaled down for small screens so lines don't wrap break */
+
+  .sidebar {
     width: 100%;
+    max-width: 100%;
+    position: static; /* Removes sticky behavior so it stays at the top */
+  }
+
+  .social-links {
+    justify-content: flex-start;
+    gap: 10px;
+  }
+}
+
+/* ==========================================
+   5. WORK EXPERIENCE LIST LAYOUT
+   ========================================== */
+.work-experience-grid {
+  display: grid;
+  grid-template-columns: auto 1fr; /* Left column auto-fits text, right column takes remaining space */
+  row-gap: 18px;                   /* Vertical spacing between rows */
+  column-gap: 20px;                /* Horizontal space between company and title */
+  align-items: start;
+  margin-top: 20px;
+}
+
+.company-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111;
+  padding-top: 2px; /* Micro-alignment adjustment to match title baseline */
+}
+
+.role-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Pushes text to align right, just like the image */
+  text-align: right;
+}
+
+.role-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.role-dates {
+  font-size: 0.8rem;
+  color: #aaa; /* Soft gray for dates */
+  font-weight: 400;
+}
+
+/* Mobile responsive layout adjustment */
+@media (max-width: 600px) {
+  .work-experience-grid {
+    grid-template-columns: 1fr; /* Collapses into a single column stack on small screens */
+    row-gap: 24px;
   }
   
-  .home {
-    gap: 16px; /* Keeps layout tight but readable on mobile */
+  .role-details {
+    align-items: flex-start; /* Aligns left on mobile for natural scrolling reading rhythm */
+    text-align: left;
   }
+}
+
+/* ==========================================
+   6. RESUME LINKS STYLING
+   ========================================== */
+.resume-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.resume-links a {
+  font-size: 0.85rem;
+  color: #222; /* Solid black to match your nav links */
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  width: max-content;
+  transition: color 0.2s;
+}
+
+.resume-links a:hover {
+  color: orange; /* Matches your sitewide accent hover color */
 }

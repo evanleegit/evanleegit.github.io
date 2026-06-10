@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Evan Lee</title>
+  <link rel="stylesheet" href="index.css"> </head>
+<body>
+
+  <div class="container">
+    
+    <aside class="sidebar" data-include="navigator.html"></aside>
+
+    <main class="main-content">
+      <section class="content">
+        <h2 class="section-title">Hello! I'm Evan.</h2>        
+        <p>
+          I studied Economics and Cognitive Science at UC Merced to explore how people make decisions and how data can help us better understand complex systems. Through research, student affairs work, and independent projects, I developed an appreciation for using quantitative analysis and human insight to solve problems.
+        </p>
+        <p>
+          Today, I'm pursuing a Master of Applied Data Science at UCLA, continuing to build my skills in data analysis, machine learning, and AI. At the same time, I'm interested in finance, investing, and the ways technology is reshaping business and decision-making.
+        </p>
+        <p>
+          Beyond the workplace, I enjoy attending live music and training calisthenics. I also spend a lot of time working on personal projects, from running a homelab and tinkering with old tech that I find at garage sales and thrift stores.
+        </p>
+
+
+
+        <h2 class="section-title">Work Experience:</h2>
+        <div class="work-experience-grid">
+          
+          <div class="company-name">Project Destined</div>
+          <div class="role-details">
+            <span class="role-title">Real Estate PE Intern</span>
+            <span class="role-dates">Jan 2026 → Mar 2026</span>
+          </div>
+
+          <div class="company-name">UC Merced OSI</div>
+          <div class="role-details">
+            <span class="role-title">Business Center Intern</span>
+            <span class="role-dates">Jan 2024 → May 2026</span>
+          </div>
+          
+          <div class="company-name">Marghetis Lab</div>
+          <div class="role-details">
+            <span class="role-title">Research Assistant</span>
+            <span class="role-dates">Aug 2025 → Present</span>
+          </div>
+
+          <div class="company-name">UCM Economics Dept.</div>
+          <div class="role-details">
+            <span class="role-title">IO Research Fellow</span>
+            <span class="role-dates">May 2024 → Aug 2025</span>
+          </div>
+      </section>
+
+  <div class="resume-links">
+  <a href="assets/dataScience_resume.pdf" target="_blank" rel="noopener noreferrer">• Check out my Data Science Resume!</a>
+  <a href="assets/finance_resume.pdf" target="_blank" rel="noopener noreferrer">• Check out my Finance & Analytics Resume!</a>
+  </div>
+
+    </main>
+    
+  </div>
+
+  <script>
+    document.querySelectorAll('[data-include]').forEach(async (el) => {
+      const file = el.getAttribute('data-include');
+      try {
+        const response = await fetch(file);
+        if (response.ok) el.innerHTML = await response.text();
+      } catch (err) {
+        console.error(`Error loading ${file}:`, err);
+      }
+    });
+  </script>
+
+
+</body>
+</html>
