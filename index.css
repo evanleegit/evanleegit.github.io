@@ -9,7 +9,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* 1. Unified font-family base */
   font-family: "JetBrains Mono", monospace;
+  line-height: 1.5; /* Gives a consistent baseline vertical rhythm */
+  color: #111;      /* Replaces harsh pure black with a softer off-black */
   padding: 20px;
 }
 
@@ -17,7 +20,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: clamp(10px, 2vh, 15px);
+  gap: clamp(12px, 2.5vh, 20px); /* Slightly increased for better breathing room */
   width: max-content;
   max-width: 100%;
 }
@@ -28,25 +31,26 @@ body {
 }
 
 .name {
-  font-size: clamp(1rem, 3vw, 1.1rem);
+  font-size: clamp(1.05rem, 3vw, 1.2rem); /* Slightly boosted for clearer hierarchy */
   font-weight: 600;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .name a {
   text-decoration: none;
-  color: black;
+  color: inherit; /* Inherits the body color automatically */
 }
 
 .tagline {
-  font-size: clamp(0.8rem, 2.5vw, 0.85rem);
+  font-size: clamp(0.8rem, 2.2vw, 0.85rem);
   opacity: 0.6;
 }
 
 /* Fish Tank */
 #tank {
-  line-height: 1.05;
-  font-size: clamp(14px, 1.4vw, 14px);
+  /* 2. Tied line-height directly to font-size intent */
+  line-height: 1.1;
+  font-size: clamp(13px, 1.4vw, 14px); 
   user-select: none;
   cursor: default;
   align-self: center;
@@ -56,9 +60,10 @@ body {
 /* Navigation */
 .nav {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   width: 100%;
-  font-size: clamp(0.85rem, 2.5vw, 0.9rem);
+  gap: 6px; /* Clean spacing between links */
+  font-size: clamp(0.85rem, 2.5vw, 0.9rem); 
 }
 
 .nav a {
@@ -66,7 +71,7 @@ body {
   text-decoration: none;
   color: inherit;
   opacity: 0.7;
-  transition: opacity 0.2s, color 0.2s;
+  transition: opacity 0.2s, color 0.2s, padding 0.2s;
 }
 
 .nav a::before {
@@ -84,6 +89,41 @@ body {
   content: ">";
 }
 
+.last-updated {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  font-size: 11px;
+  opacity: 0.5; /* Uses opacity rather than a random hardcoded gray */
+}
+
+/* Contact Section */
+.contact-section {
+  width: 100%;
+}
+
+.contact-section pre {
+  /* 3. CRITICAL: Force the pre tag to use your exact font family */
+  font-family: inherit; 
+  font-size: clamp(0.8rem, 2.2vw, 0.85rem); /* Keeps it proportional to the tagline */
+  line-height: 1.5;
+  opacity: 0.85;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.contact-section a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px; /* Prevents the underline from choking the text */
+}
+
+.contact-section a:hover {
+  opacity: 1;
+}
+
 /* Mobile optimization */
 @media (max-width: 768px) {
   body {
@@ -91,11 +131,11 @@ body {
   }
   
   #tank {
-    font-size: 14px;
+    font-size: 13px; /* Slightly scaled down for small screens so lines don't wrap break */
     width: 100%;
   }
   
   .home {
-    gap: 12px;
+    gap: 16px; /* Keeps layout tight but readable on mobile */
   }
 }

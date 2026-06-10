@@ -71,7 +71,9 @@ body {
 .nav {
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 5px;
+  font-size: clamp(0.85rem, 2.5vw, 0.9rem); 
 }
 
 .nav a {
