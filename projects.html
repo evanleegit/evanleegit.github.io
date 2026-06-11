@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Evan Lee</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <div class="container">
+    
+    <aside class="sidebar" data-include="navigator.html"></aside>
+
+    <main class="main-content">
+      <section class="content">
+                <p class="directory-path">~/projects</p>
+
+        <div class="filter-bar">
+          <span class="filter-label">ls --filter:</span>
+          <button class="filter-btn active" onclick="filterProjects('all')">[all]</button>
+          <button class="filter-btn" onclick="filterProjects('data-science')">[data-science]</button>
+          <button class="filter-btn" onclick="filterProjects('finance')">[finance]</button>
+        </div>
+
+        <div id="projects-grid" class="projects-visual-grid"></div>
+
+      </section>
+    </main>
+    
+  </div>
+
+  <script>
+    /* 1. Dynamic Component Injector (Navbar) */
+    document.querySelectorAll('[data-include]').forEach(async (el) => {
+      const file = el.getAttribute('data-include');
+      try {
+        const response = await fetch(file);
+        if (response.ok) el.innerHTML = await response.text();
+      } catch (err) { console.error(`Error loading ${file}:`, err); }
+    });
+
+    /* 2. Projects Structured Data Store */
+    const projectsData = [
+      // {
+      //   title: "financial_tracker.py",
+      //   category: "data-science",
+      //   description: "Raspberry Pi automated system designed to automatically collect and store real-time financial data from public APIs.",
+      //   image: "assets/images/proj-tracker.png", // Replace with your thumbnail path
+      //   slug: "financial-tracker"
+      // }
+    ];
+
+    /* 3. Dynamic Grid Rendering & Filtering Engine */
+    function renderProjects(filter) {
+      const grid = document.getElementById('projects-grid');
+      grid.innerHTML = '';
+
+      const filtered = filter === 'all' 
+        ? projectsData 
+        : projectsData.filter(p => p.category === filter);
+
+      filtered.forEach(project => {
+        const card = document.createElement('div');
+        card.className = `project-card ${project.category}`;
+        card.innerHTML = `
+          <a href="project-viewer.html?file=${project.slug}" class="project-card-link">
+            <div class="project-card-image-wrapper">
+              <img src="${project.image}" alt="${project.title}" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\' viewBox=\'0 0 100 100\'><rect width=\'100%\' height=\'100%\' fill=\'%23f4f4f4\'/><text x=\'50%\' y=\'50%\' font-family=\'monospace\' font-size=\'8\' fill=\'%23aaa\' text-anchor=\'middle\' dy=\'.3em\'>no_image.png</text></svg>'">
+            </div>
+            <div class="project-card-details">
+              <h4 class="project-card-title">${project.title}</h4>
+              <p class="project-card-desc">${project.description}</p>
+            </div>
+          </a>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterProjects(category) {
+      // Toggle button active states
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if(btn.getAttribute('onclick').includes(category)) {
+          btn.classList.add('active');
+        }
+      });
+      renderProjects(category);
+    }
+
+    // Initial render invocation
+    renderProjects('all');
+  </script>
+</body>
+</html>

@@ -12,6 +12,7 @@ body {
   background: #fff;
   color: #111;
   line-height: 1.5;
+  font-size: 0.9rem
 }
 
 /* ==========================================
@@ -22,13 +23,13 @@ body {
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  max-width: 250px; /* Keeps tagline breaking perfectly */
+  max-width: 225px; /* Keeps tagline breaking perfectly */
 }
 
 .name {
-  font-size: 1.1rem;  
+  font-size: 1rem;  
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .name a {
@@ -37,7 +38,7 @@ body {
 }
 
 .tagline {
-  font-size: 0.85rem; 
+  font-size: 0.78rem; 
   font-weight: 400;
   margin-bottom: 10px;
 }
@@ -61,7 +62,7 @@ body {
   align-items: flex-start;
   width: max-content;
   gap: 5px;
-  font-size: clamp(0.85rem, 2.5vw, 0.9rem); 
+  font-size: clamp(0.78rem, 2.5vw, 0.9rem); 
 }
 
 .nav a {
@@ -107,8 +108,8 @@ body {
 }
 
 #tank {
-  line-height: 1.1;
-  font-size: clamp(13px, 1.4vw, 14px); 
+  line-height: 1.05;
+  font-size: clamp(11.5px, 1.25vw, 12.5px); 
   user-select: none;
   cursor: default;
   align-self: center;
@@ -127,7 +128,7 @@ body {
 
 /* The wrapper frame holding the navbar component on subpages */
 .sidebar {
-  width: 250px;
+  width: 225px;
   flex-shrink: 0;
   position: sticky;
   top: 60px; /* Sticks neatly when scrolling down long content */
@@ -219,7 +220,7 @@ body {
 }
 
 .company-name {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: #111;
   padding-top: 2px; /* Micro-alignment adjustment to match title baseline */
@@ -233,14 +234,14 @@ body {
 }
 
 .role-title {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 500;
   color: #111;
   margin-bottom: 4px;
 }
 
 .role-dates {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: #aaa; /* Soft gray for dates */
   font-weight: 400;
 }
@@ -277,6 +278,331 @@ body {
   transition: color 0.2s;
 }
 
+.resume-text {
+  font-size: 0.85rem;
+  color: #222;       /* Solid off-black for the main sentence text */
+}
+
+.resume-text a {
+  color: #222;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
 .resume-links a:hover {
   color: orange; /* Matches your sitewide accent hover color */
+}
+
+/* ==========================================
+   7. MINIMAL DIRECTORY INTERFACE
+   ========================================== */
+.directory-path {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-bottom: 25px;
+}
+
+.directory-category {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 15px;
+}
+
+.project-directory-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-left: 15px;
+}
+
+.project-directory-item {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.project-file a {
+  color: #222;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px dashed #aaa;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.project-file a:hover {
+  color: orange;
+  border-bottom-color: orange; /* Cleaned up redundant border-style redeclaration */
+}
+
+.project-desc {
+  margin-left: 6px;
+}
+
+/* ==========================================
+   8. VISUAL DIRECTORY INTERFACE STYLES
+   ========================================== */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  font-size: 0.78rem;
+}
+
+.filter-label {
+  color: #aaa;
+}
+
+.filter-btn {
+  background: none;
+  border: none;
+  color: #666;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  color: orange;
+}
+
+.filter-btn.active {
+  font-weight: 600;
+}
+
+.projects-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 10px;
+}
+
+.project-card {
+  border: 1px solid #eaeaea;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s; /* Removed unused transform transition hook */
+}
+
+.project-card:hover {
+  border-color: orange;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-card-image-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #fdfdfd;
+  border-bottom: 1px solid #eaeaea;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(15%);
+  transition: filter 0.2s;
+}
+
+.project-card:hover img {
+  filter: grayscale(0%);
+}
+
+.project-card-details {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-card-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.project-card-desc {
+  font-size: 0.74rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+@media (max-width: 650px) {
+  .projects-visual-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* ==========================================
+   9. MARKDOWN DOCUMENT STYLING REFINEMENTS
+   ========================================== */
+#markdown-content h1 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #111;
+  margin-top: 10px;
+  margin-bottom: 24px;
+}
+
+#markdown-content h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #111;
+  margin-top: 36px;
+  margin-bottom: 16px;
+}
+
+#markdown-content h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #222;
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+
+#markdown-content p {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 18px;
+}
+
+#markdown-content ul, 
+#markdown-content ol {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#markdown-content li {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Code layout frames */
+#markdown-content pre {
+  background: #f7f7f7;
+  border: 1px solid #eaeaea;
+  padding: 16px;
+  overflow-x: auto;
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+
+#markdown-content code {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  color: #222;
+  line-height: 1.5;
+}
+
+#markdown-content :not(pre) > code {
+  background: #f4f4f4;
+  padding: 2px 6px;
+  font-size: 0.74rem;
+  color: #d14;
+  border-radius: 3px;
+}
+
+/* ==========================================
+   10. MINIMALIST JOURNAL FEED STYLES
+   ========================================== */
+.journal-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 36px; /* Explicit vertical breathing room between updates */
+  margin-top: 15px;
+}
+
+.journal-entry-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+/* Left side columns for dates and category markers */
+.journal-meta {
+  width: 110px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
+  padding-top: 2px; /* Micro-alignment fix with title text */
+}
+
+.journal-date {
+  font-size: 0.72rem;
+  color: #aaa;
+  text-transform: uppercase;
+}
+
+.journal-symbol {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* Right side content blocks */
+.journal-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.journal-entry-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.journal-entry-title a {
+  color: #111;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.journal-entry-title a:hover {
+  color: orange;
+}
+
+.journal-entry-excerpt {
+  font-size: 0.78rem; /* Keeps your chosen 90% font metric standard */
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Mobile responsive collapsing for small viewports */
+@media (max-width: 600px) {
+  .journal-entry-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .journal-meta {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 12px;
+    border-bottom: 1px dashed #eaeaea;
+    padding-bottom: 4px;
+  }
 }

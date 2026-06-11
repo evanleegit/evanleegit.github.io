@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journal View | Evan Lee</title> <link rel="stylesheet" href="index.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    
+    <aside class="sidebar" data-include="navigator.html"></aside>
+
+    <main class="main-content">
+      <div class="directory-path"><a href="journal.html" style="color: inherit; text-decoration: none;">~/journal</a> / <span id="project-filename">loading...</span></div>
+      
+      <article id="markdown-content" class="content"></article>
+    </main>
+    
+  </div>
+
+  <script>
+    /* 1. Dynamic Component Injector (Your Navbar script) */
+    document.querySelectorAll('[data-include]').forEach(async (el) => {
+      const file = el.getAttribute('data-include');
+      try {
+        const response = await fetch(file);
+        if (response.ok) el.innerHTML = await response.text();
+      } catch (err) { console.error(`Error loading ${file}:`, err); }
+    });
+
+    /* 2. Dynamic Markdown Loader Engine */
+    async function loadMarkdownProject() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const fileName = urlParams.get('file');
+
+      if (!fileName) {
+        document.getElementById('markdown-content').innerHTML = "<p>No entry specified.</p>";
+        return;
+      }
+
+      // 3. This line works perfectly as-is! It will print the name of your journal post file.
+      document.getElementById('project-filename').innerText = `${fileName}.md`;
+
+      try {
+        // 4. Fetches the raw markdown text file from your assets/journal/ folder
+        const response = await fetch(`assets/journal/${fileName}.md`);
+        if (!response.ok) throw new Error('File not found');
+        
+        const markdownText = await response.text();
+        
+        document.getElementById('markdown-content').innerHTML = marked.parse(markdownText);
+      } catch (err) {
+        document.getElementById('markdown-content').innerHTML = `<p>Error loading document '${fileName}.md'. Ensure the file exists.</p>`;
+      }
+    }
+
+    // Run the loader engine on page mount
+    loadMarkdownProject();
+  </script>
+</body>
+</html>

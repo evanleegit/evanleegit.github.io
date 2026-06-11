@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journal | Evan Lee</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <div class="container">
+    
+    <aside class="sidebar" data-include="navigator.html"></aside>
+
+    <main class="main-content">
+      <section class="content">
+        <p class="directory-path">~/journal</p>
+
+        <div id="journal-feed" class="journal-timeline"></div>
+      </section>
+    </main>
+    
+  </div>
+
+  <script>
+    /* 1. Dynamic Component Injector (Navbar) */
+    document.querySelectorAll('[data-include]').forEach(async (el) => {
+      const file = el.getAttribute('data-include');
+      try {
+        const response = await fetch(file);
+        if (response.ok) el.innerHTML = await response.text();
+      } catch (err) { console.error(`Error loading ${file}:`, err); }
+    });
+
+    /* 2. Journal Entries Data Store (Cleaned out 'symbol' and 'type' keys) */
+    const journalEntries = [
+      {
+        date: "Jun 10, 2026",
+        title: "print(\"Hello, World!\")",
+        excerpt: "My first journal entry. Sharing a little about building this site and my expectations for how to use it.",
+        slug: "hello-world"
+      }
+    ];
+
+    /* 3. Render Engine */
+    function renderJournal() {
+      const feed = document.getElementById('journal-feed');
+      feed.innerHTML = '';
+
+      journalEntries.forEach(entry => {
+        const post = document.createElement('div');
+        post.className = 'journal-entry-row';
+        post.innerHTML = `
+          <div class="journal-meta">
+            <span class="journal-date">${entry.date}</span>
+          </div>
+          <div class="journal-body">
+            <h3 class="journal-entry-title">
+              <a href="journal-viewer.html?file=${entry.slug}">${entry.title}</a>
+            </h3>
+            <p class="journal-entry-excerpt">${entry.excerpt}</p>
+          </div>
+        `;
+        feed.appendChild(post);
+      });
+    }
+
+    // Initialize render
+    renderJournal();
+  </script>
+</body>
+</html>
